@@ -1053,12 +1053,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ubkni")
 [node name="Tabs" type="TabContainer" parent="GUI/Splitter/Center/BottomTabs" unique_id=1589727556]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
 tabs_position = 1
 deselect_enabled = true
 
 [node name="Console" type="MarginContainer" parent="GUI/Splitter/Center/BottomTabs/Tabs" unique_id=259802220 node_paths=PackedStringArray("_richLabel", "_searchEdit", "_clearBtn", "_filterBtn")]
-
+visible = false
 custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 theme_override_constants/margin_left = 8
@@ -1118,6 +1117,11 @@ expand_icon = true
 [node name="ConsoleFilters" parent="GUI/Splitter/Center/BottomTabs/Tabs/Console" unique_id=1370024561 instance=ExtResource("40_console_filters")]
 size = Vector2i(500, 100)
 visible = false
+
+[node name="Git" type="TabContainer" parent="GUI/Splitter/Center/BottomTabs/Tabs" unique_id=1787945111]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Right" type="PanelContainer" parent="GUI/Splitter" unique_id=528512110]
 custom_minimum_size = Vector2(320, 0)
