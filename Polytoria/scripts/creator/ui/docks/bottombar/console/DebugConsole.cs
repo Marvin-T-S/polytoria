@@ -25,7 +25,7 @@ public partial class DebugConsole : Control
 	private const int FontSizeStep = 2;
 	private const int MinFontSize = 8;
 	private const int MaxFontSize = 72;
-	
+
 	private readonly StringBuilder _textBuilder = new();
 
 	[Export] private RichTextLabel _richLabel = null!;
@@ -116,13 +116,13 @@ public partial class DebugConsole : Control
 
 		base._Process(delta);
 	}
-	
+
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouseButton mb && mb.Pressed)
 		{
 			if (!GetGlobalRect().HasPoint(mb.GlobalPosition)) return;
-			
+
 			if (mb.CtrlPressed && mb.ButtonIndex == MouseButton.WheelUp)
 			{
 				_currentFontSize = Mathf.Clamp(_currentFontSize + FontSizeStep, MinFontSize, MaxFontSize);
