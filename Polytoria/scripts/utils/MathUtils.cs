@@ -13,16 +13,10 @@ namespace Polytoria.Utils;
 public static class MathUtils
 {
 
-	// Prevent -0 from returning to be sure no unexpected behavior occurs and because people complain
-	public static float NormalizeZero(float value)
-	{
-		return value == 0f ? 0f : value;
-	}
 
 	public static Vector3 FlipVector3(Vector3 vector3)
 	{
-		// Flip Z to convert between Polytoria's +Z forward and Godot's -Z forward
-		vector3.Z = -vector3.Z;
+		vector3.X = -vector3.X;
 		return vector3;
 	}
 
@@ -40,9 +34,9 @@ public static class MathUtils
 	public static Vector3 FlipEuler(Vector3 polyRot)
 	{
 		Vector3 godotEuler = new(
-			NormalizeZero(polyRot.X),
-			NormalizeZero(-polyRot.Y),
-			NormalizeZero(-polyRot.Z)
+			polyRot.X,
+			-polyRot.Y,
+			-polyRot.Z
 		);
 		return godotEuler;
 	}
@@ -50,9 +44,9 @@ public static class MathUtils
 	public static Vector3 Vector3RadToDeg(Vector3 v)
 	{
 		return new Vector3(
-			NormalizeZero(Mathf.RadToDeg(v.X)),
-			NormalizeZero(Mathf.RadToDeg(v.Y)),
-			NormalizeZero(Mathf.RadToDeg(v.Z))
+			Mathf.RadToDeg(v.X),
+			Mathf.RadToDeg(v.Y),
+			Mathf.RadToDeg(v.Z)
 		);
 	}
 

@@ -110,20 +110,20 @@ public class PTQuaternion : IScriptGDObject
 	[ScriptMethod]
 	public static PTQuaternion Euler(float x, float y, float z)
 	{
-		return FromGDClass(Quaternion.FromEuler(MathUtils.Vector3DegToRad(new(x, y, z)).FlipEuler()));
+		return FromGDClass(Quaternion.FromEuler(MathUtils.Vector3DegToRad(new(x, y, z))));
 	}
 
 	[ScriptMethod]
 	public static PTQuaternion Euler(Vector3 euler)
 	{
-		return FromGDClass(Quaternion.FromEuler(euler.DegToRad().FlipEuler()));
+		return FromGDClass(Quaternion.FromEuler(euler.DegToRad()));
 	}
 
 
 	[ScriptMethod(ConvertParamsToGD = false)]
 	public static Vector3 ToEuler(PTQuaternion euler)
 	{
-		return MathUtils.Vector3RadToDeg(euler.quat.GetEuler()).FlipEuler();
+		return MathUtils.Vector3RadToDeg(euler.quat.GetEuler());
 	}
 
 	[ScriptMethod]
@@ -193,11 +193,9 @@ public class PTQuaternion : IScriptGDObject
 	public static PTQuaternion LookRotation(Vector3 forward, Vector3 upwards)
 	{
 		forward = forward.Normalized();
-		upwards = upwards.Normalized(); // 5 Hours wasted only for this line to miss
+		upwards = upwards.Normalized();
 
-		// Godot expects -Z as forward direction internally
-		var basis = Basis.LookingAt(forward, upwards);
-
+		var basis = Basis.LookingAt(-forward, upwards);
 		return FromGDClass(basis.GetRotationQuaternion());
 	}
 
