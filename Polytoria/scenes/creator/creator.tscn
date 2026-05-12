@@ -1116,7 +1116,7 @@ icon = ExtResource("22_i1txp")
 expand_icon = true
 
 [node name="ConsoleFilters" parent="GUI/Splitter/Center/BottomTabs/Tabs/Console" unique_id=1370024561 instance=ExtResource("40_console_filters")]
-size = Vector2i(500, 100)
+size = Vector2i(270, 150)
 visible = false
 
 [node name="Right" type="PanelContainer" parent="GUI/Splitter" unique_id=528512110]

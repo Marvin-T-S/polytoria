@@ -78,27 +78,30 @@ public partial class DebugConsole : Control
 		{
 			GD.PrintErr("DebugConsole: Could not find ConsoleFilters node!");
 		}
-    
-    int size = _richLabel.GetThemeFontSize("normal_font_size", "Label");
-    _currentFontSize = size > 0 ? size : 16;
-    
+
+	    int size = _richLabel.GetThemeFontSize("normal_font_size", "Label");
+	    _currentFontSize = size > 0 ? size : 16;
+
 	}
 
 	private void OnFilterButtonPressed()
 	{
-		if (_consoleFilters == null)
+		if (_consoleFilters == null) return;
+
+		if (_consoleFilters.Visible)
 		{
+			_consoleFilters.Hide();
 			return;
 		}
 
-		_consoleFilters.ResetSize();
-
-		var (btnX, btnY) = _filterBtn.GlobalPosition;
-
-		var btnPopupY = btnY - _consoleFilters.Size.Y - 8;
-
-		_consoleFilters.Position = (Vector2I)new Vector2(btnX, btnPopupY);
 		_consoleFilters.Show();
+
+		Vector2 pos = _filterBtn.GlobalPosition;
+
+		_consoleFilters.Position = new Vector2I(
+			(int)pos.X,
+			(int)(pos.Y - _consoleFilters.Size.Y - 8)
+		);
 	}
 
 	public override void _Process(double delta)
@@ -119,22 +122,21 @@ public partial class DebugConsole : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventMouseButton mb && mb.Pressed)
-		{
-			if (!GetGlobalRect().HasPoint(mb.GlobalPosition)) return;
+		if (@event is not InputEventMouseButton { Pressed: true } mb) return;
+		if (!GetGlobalRect().HasPoint(mb.GlobalPosition)) return;
 
-			if (mb.CtrlPressed && mb.ButtonIndex == MouseButton.WheelUp)
-			{
+		switch (mb)
+		{
+			case { CtrlPressed: true, ButtonIndex: MouseButton.WheelUp }:
 				_currentFontSize = Mathf.Clamp(_currentFontSize + FontSizeStep, MinFontSize, MaxFontSize);
 				_richLabel.AddThemeFontSizeOverride("normal_font_size", _currentFontSize);
 				GetViewport().SetInputAsHandled();
-			}
-			else if (mb.CtrlPressed && mb.ButtonIndex == MouseButton.WheelDown)
-			{
+				break;
+			case { CtrlPressed: true, ButtonIndex: MouseButton.WheelDown }:
 				_currentFontSize = Mathf.Clamp(_currentFontSize - FontSizeStep, MinFontSize, MaxFontSize);
 				_richLabel.AddThemeFontSizeOverride("normal_font_size", _currentFontSize);
 				GetViewport().SetInputAsHandled();
-			}
+				break;
 		}
 	}
 
@@ -296,7 +298,7 @@ public partial class DebugConsole : Control
 				return true;
 			}
 
-			return (!(l.Content.Find(SearchQuery, caseSensitive: false) == -1));
+			return (l.Content.Find(SearchQuery, caseSensitive: false) != -1);
 
 		});
 

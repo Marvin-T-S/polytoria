@@ -21,7 +21,7 @@ corner_radius_bottom_left = 6
 [node name="ConsoleFilters" type="PopupPanel" node_paths=PackedStringArray("_infoCheckBox", "_warningCheckBox", "_errorCheckBox", "_noneCheckBox", "_clientCheckBox", "_serverCheckBox", "_addonCheckBox")]
 auto_translate_mode = 1
 initial_position = 1
-size = Vector2i(294, 162)
+size = Vector2i(270, 150)
 visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_popup")
 script = ExtResource("1_ab8cd")
@@ -36,8 +36,8 @@ _addonCheckBox = NodePath("MainHBox/SourceColumn/AddonCheckBox")
 [node name="MainHBox" type="HBoxContainer" parent="."]
 offset_left = 12.0
 offset_top = 10.0
-offset_right = 282.0
-offset_bottom = 152.0
+offset_right = 258.0
+offset_bottom = 140.0
 theme_override_constants/separation = 15
 
 [node name="TypeColumn" type="VBoxContainer" parent="MainHBox"]

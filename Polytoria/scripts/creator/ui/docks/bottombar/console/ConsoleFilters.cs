@@ -60,10 +60,12 @@ public partial class ConsoleFilters : PopupPanel
 		}
 
 		SyncCheckboxes();
-
 		ResetSize();
-		Position = (Vector2I)screenPos;
-		Show();
+
+		Popup(new Rect2I(
+			(Vector2I)screenPos,
+			(Vector2I)Size
+		));
 	}
 
 }
