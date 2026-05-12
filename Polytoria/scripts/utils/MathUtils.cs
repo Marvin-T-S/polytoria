@@ -12,8 +12,6 @@ namespace Polytoria.Utils;
 /// </summary>
 public static class MathUtils
 {
-
-
 	public static Vector3 FlipVector3(Vector3 vector3)
 	{
 		vector3.X = -vector3.X;

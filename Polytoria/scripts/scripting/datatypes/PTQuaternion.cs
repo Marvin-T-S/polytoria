@@ -8,6 +8,7 @@ using Polytoria.Utils;
 
 namespace Polytoria.Scripting.Datatypes;
 
+// NOTE: Quaternion exposed to developers is in degrees
 public class PTQuaternion : IScriptGDObject
 {
 	internal Quaternion quat;
