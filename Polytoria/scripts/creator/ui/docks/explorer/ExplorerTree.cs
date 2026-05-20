@@ -142,54 +142,54 @@ public partial class ExplorerTree : Tree
 		switch (dragData)
 		{
 			case InstanceDragData instanceDrag:
-			{
-				foreach (Instance item in instanceDrag.Instances)
 				{
-					draggedItems.Add(InstanceToItem[item]);
-				}
+					foreach (Instance item in instanceDrag.Instances)
+					{
+						draggedItems.Add(InstanceToItem[item]);
+					}
 
-				break;
-			}
+					break;
+				}
 			case FileDragData fileDrag:
-			{
-				if (fileDrag.Files.Length == 1)
 				{
-					string file = fileDrag.Files[0];
-					string fileExt = file.GetExtension();
-
-					if (Globals.ScriptFileExtensions.Contains(fileExt))
+					if (fileDrag.Files.Length == 1)
 					{
-						bool createAsChild = true;
-						string n = CreatorService.GetScriptNameFromPath(file);
-						ScriptTypeEnum st = CreatorService.GetScriptTypeFromPath(file);
+						string file = fileDrag.Files[0];
+						string fileExt = file.GetExtension();
 
-						if (createAsChild)
+						if (Globals.ScriptFileExtensions.Contains(fileExt))
 						{
-							Script s = st switch
+							bool createAsChild = true;
+							string n = CreatorService.GetScriptNameFromPath(file);
+							ScriptTypeEnum st = CreatorService.GetScriptTypeFromPath(file);
+
+							if (createAsChild)
 							{
-								ScriptTypeEnum.Server => Root.New<ServerScript>(),
-								ScriptTypeEnum.Client => Root.New<ClientScript>(),
-								_ => Root.New<ModuleScript>()
-							};
+								Script s = st switch
+								{
+									ScriptTypeEnum.Server => Root.New<ServerScript>(),
+									ScriptTypeEnum.Client => Root.New<ClientScript>(),
+									_ => Root.New<ModuleScript>()
+								};
 
-							s.LinkedScript = Root.Assets.GetFileLinkByPath(file);
-							s.Name = n.ToPascalCase();
+								s.LinkedScript = Root.Assets.GetFileLinkByPath(file);
+								s.Name = n.ToPascalCase();
 
-							s.Parent = target;
-							Root.CreatorContext.Selections.DeselectAll();
-							Root.CreatorContext.Selections.Select(s);
+								s.Parent = target;
+								Root.CreatorContext.Selections.DeselectAll();
+								Root.CreatorContext.Selections.Select(s);
+							}
 						}
-					}
-					else if (fileExt == Globals.ModelFileExtension)
-					{
-						_ = Root.LinkedSession.InsertModel(file, target);
+						else if (fileExt == Globals.ModelFileExtension)
+						{
+							_ = Root.LinkedSession.InsertModel(file, target);
+						}
+
+						Root.PlayerGUI.GrabFocus();
 					}
 
-					Root.PlayerGUI.GrabFocus();
+					break;
 				}
-
-				break;
-			}
 			default:
 				return;
 		}
