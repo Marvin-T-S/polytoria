@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://panwma2xj7yu" path="res://assets/textures/ui-icons/home.svg" id="1_home"]
+[ext_resource type="Texture2D" uid="uid://d2efj51sdi6ov" path="res://assets/textures/ui-icons/planet.svg" id="2_places"]
+[ext_resource type="Texture2D" uid="uid://dg0pnnassj4hg" path="res://assets/textures/ui-icons/shirt.svg" id="3_character"]
+[ext_resource type="Texture2D" uid="uid://cn2pxpsce6582" path="res://assets/textures/ui-icons/shopping-cart.svg" id="4_store"]
+[ext_resource type="PackedScene" path="res://scenes/launcher/ui/nav_button.tscn" id="5_navbtn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav"]
+bg_color = Color(0.02745098, 0.047058824, 0.07450981, 1)
+border_width_top = 1
+border_color = Color(0.12941177, 0.24313726, 0.38039216, 0.5)
+
+[node name="Navbar" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nav")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Home" parent="HBoxContainer" instance=ExtResource("5_navbtn")]
+LabelText = "Home"
+IconTexture = ExtResource("1_home")
+Id = "home"
+
+[node name="Places" parent="HBoxContainer" instance=ExtResource("5_navbtn")]
+LabelText = "Places"
+IconTexture = ExtResource("2_places")
+Id = "places"
+
+[node name="Character" parent="HBoxContainer" instance=ExtResource("5_navbtn")]
+LabelText = "Character"
+IconTexture = ExtResource("3_character")
+Id = "character"
+
+[node name="Store" parent="HBoxContainer" instance=ExtResource("5_navbtn")]
+LabelText = "Store"
+IconTexture = ExtResource("4_store")
+Id = "store"
+

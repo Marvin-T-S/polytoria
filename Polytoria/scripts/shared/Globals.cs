@@ -544,6 +544,7 @@ public sealed partial class Globals : Node
 	{
 		Client,
 		Creator,
+		Launcher,
 		MobileUI,
 		Renderer
 	}
@@ -565,6 +566,7 @@ public sealed partial class Globals : Node
 		{
 			AppEntryEnum.Client => "res://scenes/client/client.tscn",
 			AppEntryEnum.Creator => "res://scenes/creator/creator.tscn",
+			AppEntryEnum.Launcher => "res://scenes/launcher/launcher.tscn",
 			AppEntryEnum.MobileUI => "res://scenes/mobile/mobile.tscn",
 			AppEntryEnum.Renderer => "res://scenes/renderer/renderer.tscn",
 			_ => "res://scenes/client/client.tscn",
@@ -572,6 +574,7 @@ public sealed partial class Globals : Node
 		string? iconToLoad = appEntry switch
 		{
 			AppEntryEnum.Client => "client",
+			AppEntryEnum.Launcher => "client",
 			AppEntryEnum.Creator => "creator",
 			_ => null
 		};

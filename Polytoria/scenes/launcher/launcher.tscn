@@ -1,0 +1,807 @@
+[gd_scene format=3 uid="uid://cw3xtugcpf83p"]
+
+[ext_resource type="Theme" uid="uid://dofh67vfwf6qe" path="res://resources/themes/mobile.tres" id="1_mobile"]
+[ext_resource type="Texture2D" uid="uid://wlrvgtw6qeuw" path="res://assets/textures/mobile/home/headerbg_color.png" id="2_headerbg"]
+[ext_resource type="Texture2D" uid="uid://bkneu3t63qpl7" path="res://assets/textures/logo/logo-text.png" id="3_logo_text"]
+[ext_resource type="Texture2D" uid="uid://bhp0fbb5fv6yu" path="res://assets/textures/ui-icons/click.svg" id="3_oyhg4"]
+[ext_resource type="Texture2D" uid="uid://qckn43j27am5" path="res://assets/textures/ui-icons/brick.svg" id="4_brick"]
+[ext_resource type="Texture2D" uid="uid://co60jcrmb4bkb" path="res://assets/textures/ui-icons/settings.svg" id="4_h76tt"]
+[ext_resource type="Texture2D" uid="uid://dhuywbi0hrfbs" path="res://assets/textures/datamodel/Decal.svg" id="4_kxm85"]
+[ext_resource type="Texture2D" uid="uid://y1tgfxo86kip" path="res://assets/textures/logo/logo.png" id="4_logo"]
+[ext_resource type="Texture2D" uid="uid://cma54623spmlg" path="res://assets/textures/ui-icons/search.svg" id="4_search"]
+[ext_resource type="Texture2D" uid="uid://panwma2xj7yu" path="res://assets/textures/ui-icons/home.svg" id="5_home"]
+[ext_resource type="Texture2D" uid="uid://bm1o0k3aprejc" path="res://assets/textures/ui-icons/face.svg" id="5_iwkeq"]
+[ext_resource type="Texture2D" uid="uid://d2efj51sdi6ov" path="res://assets/textures/ui-icons/planet.svg" id="6_places"]
+[ext_resource type="Texture2D" uid="uid://dgna45btjijiq" path="res://assets/textures/ui-icons/star-filled.svg" id="6_streak"]
+[ext_resource type="Texture2D" uid="uid://dsctyc3b08xsp" path="res://assets/textures/ui-icons/messages.svg" id="7_notifications"]
+[ext_resource type="Texture2D" uid="uid://0s4gs7ygxle6" path="res://assets/textures/ui-icons/user-circle.svg" id="7_player"]
+[ext_resource type="Texture2D" uid="uid://cn2pxpsce6582" path="res://assets/textures/ui-icons/shopping-cart.svg" id="8_store"]
+[ext_resource type="Texture2D" uid="uid://dg0pnnassj4hg" path="res://assets/textures/ui-icons/shirt.svg" id="9_24prq"]
+[ext_resource type="PackedScene" uid="uid://bejskcv475dof" path="res://scenes/launcher/ui/place_card.tscn" id="11_placecard"]
+[ext_resource type="Script" uid="uid://brje6w37ip1sj" path="res://scripts/launcher/ui/Launcher.cs" id="12_launcher_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.02745098, 0.047058824, 0.07450981, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar"]
+bg_color = Color(0.02745098, 0.047058824, 0.07450981, 1)
+border_width_bottom = 1
+border_color = Color(0.12941177, 0.24313726, 0.38039216, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_search"]
+bg_color = Color(0.047058824, 0.08235294, 0.12941177, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.12941177, 0.24313726, 0.38039216, 0.35)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_search"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chip"]
+bg_color = Color(0.078431375, 0.14509805, 0.22745098, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+bg_color = Color(0.93333334, 0.28235295, 0.28235295, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sidebar"]
+bg_color = Color(0.047058824, 0.08235294, 0.12941177, 1)
+border_width_right = 2
+border_color = Color(0.12941177, 0.24313726, 0.38039216, 0.3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_section"]
+bg_color = Color(0.047058824, 0.08235294, 0.12941177, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.12941177, 0.24313726, 0.38039216, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.078431375, 0.14509805, 0.22745098, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav"]
+bg_color = Color(0.02745098, 0.047058824, 0.07450981, 1)
+border_width_top = 1
+border_color = Color(0.12941177, 0.24313726, 0.38039216, 0.5)
+
+[node name="Launcher" type="Panel" unique_id=10916134]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mobile")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+script = ExtResource("12_launcher_script")
+
+[node name="TopBar" type="PanelContainer" parent="." unique_id=214794182]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_topbar")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar" unique_id=1824763305]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer" unique_id=1743928776]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="SearchPanel" type="PanelContainer" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1122334455]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_search")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/MarginContainer/HBoxContainer/SearchPanel" unique_id=1422106776]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer/SearchPanel/MarginContainer" unique_id=1199276237]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/SearchPanel/MarginContainer/HBoxContainer" unique_id=1495338657]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("4_search")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LineEdit" type="LineEdit" parent="TopBar/MarginContainer/HBoxContainer/SearchPanel/MarginContainer/HBoxContainer" unique_id=1866394438]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_search")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_search")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_search")
+placeholder_text = "Search worlds, people, or items"
+
+[node name="Balances" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1385577806]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Bricks" type="PanelContainer" parent="TopBar/MarginContainer/HBoxContainer/Balances" unique_id=1916720408]
+custom_minimum_size = Vector2(132, 56)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/MarginContainer/HBoxContainer/Balances/Bricks" unique_id=1301946411]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer/Balances/Bricks/MarginContainer" unique_id=1546514824]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/Balances/Bricks/MarginContainer/HBoxContainer" unique_id=1278444838]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4_brick")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="TopBar/MarginContainer/HBoxContainer/Balances/Bricks/MarginContainer/HBoxContainer" unique_id=1823494767]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+vertical_alignment = 1
+
+[node name="Studs" type="PanelContainer" parent="TopBar/MarginContainer/HBoxContainer/Balances" unique_id=534802978]
+custom_minimum_size = Vector2(132, 56)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/MarginContainer/HBoxContainer/Balances/Studs" unique_id=1545510440]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer/Balances/Studs/MarginContainer" unique_id=1167039683]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/Balances/Studs/MarginContainer/HBoxContainer" unique_id=581243012]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("4_kxm85")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="TopBar/MarginContainer/HBoxContainer/Balances/Studs/MarginContainer/HBoxContainer" unique_id=1764448925]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="RightCluster" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1010101010]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Streak" type="PanelContainer" parent="TopBar/MarginContainer/HBoxContainer/RightCluster" unique_id=567890123]
+custom_minimum_size = Vector2(112, 56)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_chip")
+
+[node name="MarginContainer" type="MarginContainer" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/Streak" unique_id=667890124]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/Streak/MarginContainer" unique_id=767890125]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/Streak/MarginContainer/HBoxContainer" unique_id=867890126]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("6_streak")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/Streak/MarginContainer/HBoxContainer" unique_id=967890127]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/Streak/MarginContainer/HBoxContainer/VBoxContainer" unique_id=967890128]
+modulate = Color(1, 1, 1, 0.72)
+layout_mode = 2
+text = "Streak"
+
+[node name="Label2" type="Label" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/Streak/MarginContainer/HBoxContainer/VBoxContainer" unique_id=967890129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "7 days"
+
+[node name="NotificationsBtn" type="Button" parent="TopBar/MarginContainer/HBoxContainer/RightCluster" unique_id=345678901]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_chip")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_chip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_chip")
+flat = true
+
+[node name="Icon" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/NotificationsBtn" unique_id=445678902]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_notifications")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Badge" type="PanelContainer" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/NotificationsBtn" unique_id=545678903]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="Label" type="Label" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/NotificationsBtn/Badge" unique_id=645678904]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerBtn" type="Button" parent="TopBar/MarginContainer/HBoxContainer/RightCluster" unique_id=745678905]
+custom_minimum_size = Vector2(56, 56)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_chip")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_chip")
+theme_override_styles/hover = SubResource("StyleBoxFlat_chip")
+flat = true
+
+[node name="Icon" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer/RightCluster/PlayerBtn" unique_id=845678906]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_player")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MainHorizontalLayout" type="HBoxContainer" parent="." unique_id=7673820]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="SideMenu" type="PanelContainer" parent="MainHorizontalLayout" unique_id=1121739676]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sidebar")
+
+[node name="SidebarPadding" type="MarginContainer" parent="MainHorizontalLayout/SideMenu" unique_id=912837465]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/SideMenu/SidebarPadding" unique_id=94209575]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MenuToggle" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=487098176]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/MenuToggle" unique_id=380099745]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture = ExtResource("3_oyhg4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=1226113802]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NavItems" type="VBoxContainer" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=905318037]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="SettingsBtn" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems" unique_id=119041568]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+flat = true
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/SettingsBtn" unique_id=300355170]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture = ExtResource("4_h76tt")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/SettingsBtn" unique_id=2020127546]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -11.5
+offset_right = 218.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Settings"
+
+[node name="ProfileBtn" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems" unique_id=27814486]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+flat = true
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/ProfileBtn" unique_id=1295906401]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 16.0
+grow_vertical = 2
+texture = ExtResource("5_iwkeq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/ProfileBtn" unique_id=1813459627]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -11.5
+offset_right = 218.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Profile"
+
+[node name="ExitBtn" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=1051716804]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+flat = true
+
+[node name="Icon" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/ExitBtn" unique_id=132337200]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 16.0
+grow_vertical = 2
+text = "⏻"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/ExitBtn" unique_id=67135584]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 68.0
+offset_top = -11.5
+offset_right = 218.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Exit"
+
+[node name="Layout" type="VBoxContainer" parent="MainHorizontalLayout" unique_id=1159247469]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="MainView" type="ScrollContainer" parent="MainHorizontalLayout/Layout" unique_id=449248385]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MainPadding" type="MarginContainer" parent="MainHorizontalLayout/Layout/MainView" unique_id=1344636359]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Content" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding" unique_id=1184658019]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="Hero" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=978443386]
+custom_minimum_size = Vector2(0, 310)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="Background" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero" unique_id=1270241743]
+modulate = Color(0.78, 0.78, 0.78, 1)
+layout_mode = 2
+texture = ExtResource("2_headerbg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero" unique_id=371107895]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer" unique_id=1549996848]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer" unique_id=174545723]
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+texture = ExtResource("3_logo_text")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer" unique_id=2125601130]
+modulate = Color(1, 1, 1, 0.72)
+layout_mode = 2
+text = "Pick up where you left off"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer" unique_id=417781563]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayButton" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer/HBoxContainer" unique_id=847555949]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "Play"
+
+[node name="OpenButton" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer/HBoxContainer" unique_id=927146010]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "Open Project"
+
+[node name="ContinueSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=1434553104]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection" unique_id=1649576141]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/Header" unique_id=1909767820]
+modulate = Color(0.709804, 0.764706, 0.827451, 1)
+layout_mode = 2
+text = "Get right back in the action!"
+
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/Header" unique_id=1749832733]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Continue Playing"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection" unique_id=751459008]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/ScrollContainer" unique_id=1401408612]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Card" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/ScrollContainer/HBoxContainer" unique_id=1680464582 instance=ExtResource("11_placecard")]
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 2
+
+[node name="Card2" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/ScrollContainer/HBoxContainer" unique_id=1769668244 instance=ExtResource("11_placecard")]
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 2
+
+[node name="FriendsSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=819531912]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection" unique_id=926813622]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/Header" unique_id=115100266]
+modulate = Color(0.709804, 0.764706, 0.827451, 1)
+layout_mode = 2
+text = "Who's online today?"
+
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/Header" unique_id=956310370]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Your Friends"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection" unique_id=1226923927]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer" unique_id=1278778629]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FriendCard" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer" unique_id=994401138]
+custom_minimum_size = Vector2(120, 140)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer/FriendCard" unique_id=435114086]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer/FriendCard/VBox" unique_id=1038317655]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+texture = ExtResource("4_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer/FriendCard/VBox" unique_id=1850544472]
+layout_mode = 2
+text = "Friend 1"
+horizontal_alignment = 1
+
+[node name="FeedSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=104083141]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection" unique_id=540220815]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/Header" unique_id=1203954465]
+modulate = Color(0.709804, 0.764706, 0.827451, 1)
+layout_mode = 2
+text = "What's happening today?"
+
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/Header" unique_id=2113788586]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Feed"
+
+[node name="FeedCard" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection" unique_id=2141332330]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="HBox" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard" unique_id=356654784]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox" unique_id=239100777]
+custom_minimum_size = Vector2(110, 110)
+layout_mode = 2
+texture = ExtResource("4_logo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox" unique_id=2114392650]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox/VBox" unique_id=148747965]
+layout_mode = 2
+text = "Patch notes"
+
+[node name="Button" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox/VBox" unique_id=1284465701]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+text = "Open Feed"
+
+[node name="Spacer" type="Control" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=713050095]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Navbar" type="PanelContainer" parent="MainHorizontalLayout/Layout" unique_id=245037768]
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nav")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/Navbar" unique_id=832153911]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Home" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=956939672]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Home" unique_id=1526953597]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Home/VBox" unique_id=1283288482]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("5_home")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Home/VBox" unique_id=1038343351]
+layout_mode = 2
+text = "Home"
+horizontal_alignment = 1
+
+[node name="Places" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=691153627]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Places" unique_id=244327750]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Places/VBox" unique_id=1668462726]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("6_places")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Places/VBox" unique_id=388911776]
+layout_mode = 2
+text = "Places"
+horizontal_alignment = 1
+
+[node name="Character" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=1613523489]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Character" unique_id=1233108360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Character/VBox" unique_id=170312649]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("9_24prq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Character/VBox" unique_id=1446748873]
+layout_mode = 2
+text = "Character"
+horizontal_alignment = 1
+
+[node name="Store" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=1246393319]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Store" unique_id=1322790366]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Store/VBox" unique_id=563494284]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("8_store")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Store/VBox" unique_id=258008404]
+layout_mode = 2
+text = "Store"
+horizontal_alignment = 1

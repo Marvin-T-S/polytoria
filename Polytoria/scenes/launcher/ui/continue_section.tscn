@@ -1,0 +1,40 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bejskcv475dof" path="res://scenes/launcher/ui/place_card.tscn" id="1_placecard"]
+
+[node name="ContinueSection" type="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Header"]
+modulate = Color(0.709804, 0.764706, 0.827451, 1)
+layout_mode = 2
+text = "Get right back in the action!"
+
+[node name="Label2" type="Label" parent="Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Continue Playing"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Card" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_placecard")]
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 2
+
+[node name="Card2" parent="ScrollContainer/HBoxContainer" instance=ExtResource("1_placecard")]
+custom_minimum_size = Vector2(260, 260)
+layout_mode = 2
+
+

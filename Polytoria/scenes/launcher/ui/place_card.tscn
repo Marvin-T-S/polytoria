@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://bejskcv475dof"]
+
+[ext_resource type="StyleBox" uid="uid://bwksp3bsrvcf6" path="res://resources/styles/card_rounded.tres" id="1_cardstyle"]
+[ext_resource type="Texture2D" uid="uid://b4v43t5eftodu" path="res://assets/textures/client/placeholder/place_thumbnail.png" id="2_thumbnail"]
+[ext_resource type="Texture2D" uid="uid://0s4gs7ygxle6" path="res://assets/textures/ui-icons/user-circle.svg" id="3_user"]
+[ext_resource type="Texture2D" uid="uid://f8k4hb5wuttg" path="res://assets/textures/ui-icons/thumb-up.svg" id="4_thumb"]
+[ext_resource type="Texture2D" uid="uid://d2efj51sdi6ov" path="res://assets/textures/ui-icons/planet.svg" id="5_planet"]
+[ext_resource type="Script" uid="uid://d1wjxgs3tf3l8" path="res://scripts/launcher/ui/PlaceCard.cs" id="6_script"]
+[ext_resource type="Texture2D" uid="uid://deii1n7ji6sj0" path="res://assets/textures/ui-icons/play.svg" id="7_o3s5e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+bg_color = Color(0.12, 0.53, 0.9, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 2
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 2
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_play_btn"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card_bg"]
+bg_color = Color(0.047058824, 0.08235294, 0.12941177, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="PlaceCard" type="PanelContainer"]
+custom_minimum_size = Vector2(230, 320)
+offset_right = 230.0
+offset_bottom = 320.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card_bg")
+script = ExtResource("6_script")
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ThumbPanel" type="PanelContainer" parent="Container/VBox"]
+clip_children = 2
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Thumbnail" type="TextureRect" parent="Container/VBox/ThumbPanel"]
+layout_mode = 2
+texture = ExtResource("2_thumbnail")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Badge" type="Label" parent="Container/VBox/ThumbPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_badge")
+text = " 2.0 "
+
+[node name="TitleRow" type="HBoxContainer" parent="Container/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Icon" type="TextureRect" parent="Container/VBox/TitleRow"]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+texture = ExtResource("5_planet")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="Container/VBox/TitleRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+text = "[RPG] Fortis (1.0)"
+autowrap_mode = 2
+max_lines_visible = 2
+
+[node name="StatsRow" type="HBoxContainer" parent="Container/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Players" type="HBoxContainer" parent="Container/VBox/StatsRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="PlayerIcon" type="TextureRect" parent="Container/VBox/StatsRow/Players"]
+modulate = Color(0.7, 0.7, 0.7, 1)
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("3_user")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlayerCount" type="Label" parent="Container/VBox/StatsRow/Players"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.9, 0.9, 1)
+text = "5"
+
+[node name="Likes" type="HBoxContainer" parent="Container/VBox/StatsRow"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ThumbIcon" type="TextureRect" parent="Container/VBox/StatsRow/Likes"]
+modulate = Color(0.4, 0.86, 0.33, 1)
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("4_thumb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LikePercent" type="Label" parent="Container/VBox/StatsRow/Likes"]
+modulate = Color(0.4, 0.86, 0.33, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "96%"
+
+[node name="Spacer" type="Control" parent="Container/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayButton" type="Button" parent="Container/VBox"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_play_btn")
+icon = ExtResource("7_o3s5e")
+icon_alignment = 1
+expand_icon = true
