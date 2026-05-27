@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dofh67vfwf6qe" path="res://resources/themes/mobile.tres" id="1_mobile"]
 [ext_resource type="Texture2D" uid="uid://wlrvgtw6qeuw" path="res://assets/textures/mobile/home/headerbg_color.png" id="2_headerbg"]
+[ext_resource type="Texture2D" uid="uid://btjjo31t0c8g2" path="res://assets/textures/client/ui/menu_button/polytoria.png" id="3_j0s32"]
 [ext_resource type="Texture2D" uid="uid://bkneu3t63qpl7" path="res://assets/textures/logo/logo-text.png" id="3_logo_text"]
 [ext_resource type="Texture2D" uid="uid://bhp0fbb5fv6yu" path="res://assets/textures/ui-icons/click.svg" id="3_oyhg4"]
 [ext_resource type="Texture2D" uid="uid://qckn43j27am5" path="res://assets/textures/ui-icons/brick.svg" id="4_brick"]
@@ -19,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dg0pnnassj4hg" path="res://assets/textures/ui-icons/shirt.svg" id="9_24prq"]
 [ext_resource type="PackedScene" uid="uid://bejskcv475dof" path="res://scenes/launcher/ui/place_card.tscn" id="11_placecard"]
 [ext_resource type="Script" uid="uid://brje6w37ip1sj" path="res://scripts/launcher/ui/Launcher.cs" id="12_launcher_script"]
+[ext_resource type="Texture2D" uid="uid://th3l6kkfjdl2" path="res://assets/textures/client/ui/menu_button/chat.png" id="17_j0s32"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.02745098, 0.047058824, 0.07450981, 1)
@@ -101,7 +103,7 @@ script = ExtResource("12_launcher_script")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 88.0
+offset_bottom = 106.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_topbar")
 
@@ -116,6 +118,13 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 14
+
+[node name="Logo" type="TextureRect" parent="TopBar/MarginContainer/HBoxContainer" unique_id=2059446438]
+custom_minimum_size = Vector2(0, 74)
+layout_mode = 2
+texture = ExtResource("3_j0s32")
+expand_mode = 2
+stretch_mode = 2
 
 [node name="SearchPanel" type="PanelContainer" parent="TopBar/MarginContainer/HBoxContainer" unique_id=1122334455]
 layout_mode = 2
@@ -324,40 +333,53 @@ stretch_mode = 5
 
 [node name="MainHorizontalLayout" type="HBoxContainer" parent="." unique_id=7673820]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 88.0
+offset_left = 80.0
+offset_top = 106.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="SideMenu" type="PanelContainer" parent="MainHorizontalLayout" unique_id=1121739676]
+[node name="SideMenu" type="PanelContainer" parent="." unique_id=1121739676]
 unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
+layout_mode = 1
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_top = 106.0
+offset_right = 80.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_sidebar")
 
-[node name="SidebarPadding" type="MarginContainer" parent="MainHorizontalLayout/SideMenu" unique_id=912837465]
+[node name="SidebarPadding" type="MarginContainer" parent="SideMenu" unique_id=912837465]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/SideMenu/SidebarPadding" unique_id=94209575]
+[node name="VBox" type="VBoxContainer" parent="SideMenu/SidebarPadding" unique_id=94209575]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="MenuToggle" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=487098176]
+[node name="MenuToggle" type="Button" parent="SideMenu/SidebarPadding/VBox" unique_id=487098176]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 flat = true
 
-[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/MenuToggle" unique_id=380099745]
+[node name="Icon" type="TextureRect" parent="SideMenu/SidebarPadding/VBox/MenuToggle" unique_id=380099745]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 4
@@ -372,21 +394,21 @@ texture = ExtResource("3_oyhg4")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="HSeparator" type="HSeparator" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=1226113802]
+[node name="HSeparator" type="HSeparator" parent="SideMenu/SidebarPadding/VBox" unique_id=1226113802]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="NavItems" type="VBoxContainer" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=905318037]
+[node name="NavItems" type="VBoxContainer" parent="SideMenu/SidebarPadding/VBox" unique_id=905318037]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="SettingsBtn" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems" unique_id=119041568]
+[node name="SettingsBtn" type="Button" parent="SideMenu/SidebarPadding/VBox/NavItems" unique_id=119041568]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 flat = true
 
-[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/SettingsBtn" unique_id=300355170]
+[node name="Icon" type="TextureRect" parent="SideMenu/SidebarPadding/VBox/NavItems/SettingsBtn" unique_id=300355170]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 4
@@ -401,7 +423,7 @@ texture = ExtResource("4_h76tt")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/SettingsBtn" unique_id=2020127546]
+[node name="Label" type="Label" parent="SideMenu/SidebarPadding/VBox/NavItems/SettingsBtn" unique_id=2020127546]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -413,12 +435,12 @@ offset_bottom = 11.5
 grow_vertical = 2
 text = "Settings"
 
-[node name="ProfileBtn" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems" unique_id=27814486]
+[node name="ProfileBtn" type="Button" parent="SideMenu/SidebarPadding/VBox/NavItems" unique_id=27814486]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 flat = true
 
-[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/ProfileBtn" unique_id=1295906401]
+[node name="Icon" type="TextureRect" parent="SideMenu/SidebarPadding/VBox/NavItems/ProfileBtn" unique_id=1295906401]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 4
@@ -433,7 +455,7 @@ texture = ExtResource("5_iwkeq")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/NavItems/ProfileBtn" unique_id=1813459627]
+[node name="Label" type="Label" parent="SideMenu/SidebarPadding/VBox/NavItems/ProfileBtn" unique_id=1813459627]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -445,12 +467,12 @@ offset_bottom = 11.5
 grow_vertical = 2
 text = "Profile"
 
-[node name="ExitBtn" type="Button" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox" unique_id=1051716804]
+[node name="ExitBtn" type="Button" parent="SideMenu/SidebarPadding/VBox" unique_id=1051716804]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 flat = true
 
-[node name="Icon" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/ExitBtn" unique_id=132337200]
+[node name="Icon" type="Label" parent="SideMenu/SidebarPadding/VBox/ExitBtn" unique_id=132337200]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 4
@@ -465,7 +487,7 @@ text = "⏻"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/SideMenu/SidebarPadding/VBox/ExitBtn" unique_id=67135584]
+[node name="Label" type="Label" parent="SideMenu/SidebarPadding/VBox/ExitBtn" unique_id=67135584]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -495,201 +517,201 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Content" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding" unique_id=1184658019]
+[node name="Home" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding" unique_id=1184658019]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 24
 
-[node name="Hero" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=978443386]
+[node name="Hero" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home" unique_id=978443386]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_section")
 
-[node name="Background" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero" unique_id=1270241743]
+[node name="Background" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero" unique_id=1270241743]
 modulate = Color(0.78, 0.78, 0.78, 1)
 layout_mode = 2
 texture = ExtResource("2_headerbg")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero" unique_id=371107895]
+[node name="MarginContainer" type="MarginContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero" unique_id=371107895]
 layout_mode = 2
 theme_override_constants/margin_left = 28
 theme_override_constants/margin_top = 28
 theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 28
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer" unique_id=1549996848]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero/MarginContainer" unique_id=1549996848]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer" unique_id=174545723]
+[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero/MarginContainer/VBoxContainer" unique_id=174545723]
 custom_minimum_size = Vector2(0, 74)
 layout_mode = 2
 texture = ExtResource("3_logo_text")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer" unique_id=2125601130]
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero/MarginContainer/VBoxContainer" unique_id=2125601130]
 modulate = Color(1, 1, 1, 0.72)
 layout_mode = 2
 text = "Pick up where you left off"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer" unique_id=417781563]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero/MarginContainer/VBoxContainer" unique_id=417781563]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="PlayButton" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer/HBoxContainer" unique_id=847555949]
+[node name="PlayButton" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero/MarginContainer/VBoxContainer/HBoxContainer" unique_id=847555949]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-text = "Play"
+text = "Create"
 
-[node name="OpenButton" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/Hero/MarginContainer/VBoxContainer/HBoxContainer" unique_id=927146010]
+[node name="OpenButton" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/Hero/MarginContainer/VBoxContainer/HBoxContainer" unique_id=927146010]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
-text = "Open Project"
+text = "Worlds"
 
-[node name="ContinueSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=1434553104]
+[node name="ContinueSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home" unique_id=1434553104]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection" unique_id=1649576141]
+[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection" unique_id=1649576141]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/Header" unique_id=1909767820]
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection/Header" unique_id=1909767820]
 modulate = Color(0.709804, 0.764706, 0.827451, 1)
 layout_mode = 2
 text = "Get right back in the action!"
 
-[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/Header" unique_id=1749832733]
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection/Header" unique_id=1749832733]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Continue Playing"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection" unique_id=751459008]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection" unique_id=751459008]
 custom_minimum_size = Vector2(0, 230)
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/ScrollContainer" unique_id=1401408612]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection/ScrollContainer" unique_id=1401408612]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Card" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/ScrollContainer/HBoxContainer" unique_id=1680464582 instance=ExtResource("11_placecard")]
+[node name="Card" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection/ScrollContainer/HBoxContainer" unique_id=1680464582 instance=ExtResource("11_placecard")]
 custom_minimum_size = Vector2(260, 260)
 layout_mode = 2
 
-[node name="Card2" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/ContinueSection/ScrollContainer/HBoxContainer" unique_id=1769668244 instance=ExtResource("11_placecard")]
+[node name="Card2" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/ContinueSection/ScrollContainer/HBoxContainer" unique_id=1769668244 instance=ExtResource("11_placecard")]
 custom_minimum_size = Vector2(260, 260)
 layout_mode = 2
 
-[node name="FriendsSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=819531912]
+[node name="FriendsSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home" unique_id=819531912]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection" unique_id=926813622]
+[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection" unique_id=926813622]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/Header" unique_id=115100266]
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/Header" unique_id=115100266]
 modulate = Color(0.709804, 0.764706, 0.827451, 1)
 layout_mode = 2
 text = "Who's online today?"
 
-[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/Header" unique_id=956310370]
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/Header" unique_id=956310370]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Your Friends"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection" unique_id=1226923927]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection" unique_id=1226923927]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer" unique_id=1278778629]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/ScrollContainer" unique_id=1278778629]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="FriendCard" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer" unique_id=994401138]
+[node name="FriendCard" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/ScrollContainer/HBoxContainer" unique_id=994401138]
 custom_minimum_size = Vector2(120, 140)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
-[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer/FriendCard" unique_id=435114086]
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/ScrollContainer/HBoxContainer/FriendCard" unique_id=435114086]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer/FriendCard/VBox" unique_id=1038317655]
+[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/ScrollContainer/HBoxContainer/FriendCard/VBox" unique_id=1038317655]
 custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
 texture = ExtResource("4_logo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FriendsSection/ScrollContainer/HBoxContainer/FriendCard/VBox" unique_id=1850544472]
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FriendsSection/ScrollContainer/HBoxContainer/FriendCard/VBox" unique_id=1850544472]
 layout_mode = 2
 text = "Friend 1"
 horizontal_alignment = 1
 
-[node name="FeedSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=104083141]
+[node name="FeedSection" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home" unique_id=104083141]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection" unique_id=540220815]
+[node name="Header" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection" unique_id=540220815]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/Header" unique_id=1203954465]
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/Header" unique_id=1203954465]
 modulate = Color(0.709804, 0.764706, 0.827451, 1)
 layout_mode = 2
 text = "What's happening today?"
 
-[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/Header" unique_id=2113788586]
+[node name="Label2" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/Header" unique_id=2113788586]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Feed"
 
-[node name="FeedCard" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection" unique_id=2141332330]
+[node name="FeedCard" type="PanelContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection" unique_id=2141332330]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 
-[node name="HBox" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard" unique_id=356654784]
+[node name="HBox" type="HBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/FeedCard" unique_id=356654784]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox" unique_id=239100777]
+[node name="TextureRect" type="TextureRect" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/FeedCard/HBox" unique_id=239100777]
 custom_minimum_size = Vector2(110, 110)
 layout_mode = 2
 texture = ExtResource("4_logo")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox" unique_id=2114392650]
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/FeedCard/HBox" unique_id=2114392650]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox/VBox" unique_id=148747965]
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/FeedCard/HBox/VBox" unique_id=148747965]
 layout_mode = 2
 text = "Patch notes"
 
-[node name="Button" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content/FeedSection/FeedCard/HBox/VBox" unique_id=1284465701]
+[node name="Button" type="Button" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home/FeedSection/FeedCard/HBox/VBox" unique_id=1284465701]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_button")
 text = "Open Feed"
 
-[node name="Spacer" type="Control" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Content" unique_id=713050095]
+[node name="Spacer" type="Control" parent="MainHorizontalLayout/Layout/MainView/MainPadding/Home" unique_id=713050095]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
@@ -726,32 +748,6 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Home/VBox" unique_id=1038343351]
 layout_mode = 2
 text = "Home"
-horizontal_alignment = 1
-
-[node name="Places" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=691153627]
-layout_mode = 2
-size_flags_horizontal = 3
-flat = true
-
-[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Places" unique_id=244327750]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Places/VBox" unique_id=1668462726]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-texture = ExtResource("6_places")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Places/VBox" unique_id=388911776]
-layout_mode = 2
-text = "Places"
 horizontal_alignment = 1
 
 [node name="Character" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=1613523489]
@@ -804,4 +800,56 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Store/VBox" unique_id=258008404]
 layout_mode = 2
 text = "Store"
+horizontal_alignment = 1
+
+[node name="Guilds" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=1983444096]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Guilds" unique_id=216169026]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Guilds/VBox" unique_id=2030755741]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("6_places")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Guilds/VBox" unique_id=1774417920]
+layout_mode = 2
+text = "Guilds"
+horizontal_alignment = 1
+
+[node name="Forums" type="Button" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer" unique_id=691153627]
+layout_mode = 2
+size_flags_horizontal = 3
+flat = true
+
+[node name="VBox" type="VBoxContainer" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Forums" unique_id=244327750]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Forums/VBox" unique_id=1668462726]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+texture = ExtResource("17_j0s32")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainHorizontalLayout/Layout/Navbar/HBoxContainer/Forums/VBox" unique_id=388911776]
+layout_mode = 2
+text = "Forums"
 horizontal_alignment = 1
