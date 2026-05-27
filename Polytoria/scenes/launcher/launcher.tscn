@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://0s4gs7ygxle6" path="res://assets/textures/ui-icons/user-circle.svg" id="7_player"]
 [ext_resource type="Texture2D" uid="uid://cn2pxpsce6582" path="res://assets/textures/ui-icons/shopping-cart.svg" id="8_store"]
 [ext_resource type="Texture2D" uid="uid://dg0pnnassj4hg" path="res://assets/textures/ui-icons/shirt.svg" id="9_24prq"]
-[ext_resource type="PackedScene" uid="uid://bejskcv475dof" path="res://scenes/launcher/ui/place_card.tscn" id="11_placecard"]
+[ext_resource type="PackedScene" uid="uid://bejskcv475dof" path="res://scenes/launcher/properties/home/place_card.tscn" id="11_placecard"]
 [ext_resource type="Script" uid="uid://brje6w37ip1sj" path="res://scripts/launcher/ui/Launcher.cs" id="12_launcher_script"]
 [ext_resource type="Texture2D" uid="uid://th3l6kkfjdl2" path="res://assets/textures/client/ui/menu_button/chat.png" id="17_j0s32"]
 

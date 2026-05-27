@@ -112,7 +112,6 @@
 		<Compile Remove="android/build/**/*.cs" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="scripts\launcher\spatial\" />
 	  <Folder Include="scripts\launcher\webapi\" />
 	</ItemGroup>
 
