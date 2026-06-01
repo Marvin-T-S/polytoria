@@ -21,6 +21,7 @@ public partial class AppEntry : Node
 		Dictionary<string, string> cmdargs = ReadCmdArgs();
 		bool isApiRefGen = cmdargs.ContainsKey("genapi");
 		bool isCreator = cmdargs.ContainsKey("creator");
+		bool isLauncher = cmdargs.ContainsKey("launcher");
 		bool isLtChild = cmdargs.ContainsKey("ltchild");
 		bool isSolo = cmdargs.ContainsKey("solo");
 
@@ -67,7 +68,7 @@ public partial class AppEntry : Node
 		{
 			entry = AppEntryEnum.Creator;
 		}
-		if (OS.HasFeature("launcher"))
+		if (OS.HasFeature("launcher") || isLauncher)
 		{
 			entry = AppEntryEnum.Launcher;
 		}
