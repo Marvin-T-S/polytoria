@@ -304,7 +304,7 @@ public struct APIGuildInfo
 
 	[JsonPropertyName("banner")]
 	public string Banner { get; set; }
-	
+
 	[JsonPropertyName("color")]
 	public string Color { get; set; }
 
@@ -322,7 +322,7 @@ public struct APIGuildInfo
 
 	[JsonPropertyName("createdAt")]
 	public DateTime CreatedAt { get; set; }
-	
+
 }
 
 public struct APIMeResponse
