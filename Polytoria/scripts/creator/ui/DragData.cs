@@ -67,6 +67,7 @@ public partial class DragData : IDragDataUnion
 
 	public static IDragDataUnion? Deserialize(Variant from)
 	{
+
 		if (from.VariantType != Variant.Type.PackedByteArray)
 			return null;
 

@@ -121,7 +121,7 @@ public sealed partial class WorldContainer : SubViewportContainer
 			Datamodel.Environment.RayResult? ray =
 				World.CreatorContext.Freelook.ScreenPointToRay(World.Input.MousePosition, [dyn]);
 			dyn.Position = ray?.Position
-			               ?? World.CreatorContext.Freelook.GetPlacementPosition([dyn]);
+						   ?? World.CreatorContext.Freelook.GetPlacementPosition([dyn]);
 		}
 		else if (!_dragFileShown)
 		{
